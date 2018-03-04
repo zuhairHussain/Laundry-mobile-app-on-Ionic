@@ -1,0 +1,36 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ item.id }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-item-group>
+      
+      <ion-item-divider color="light">Customer Details</ion-item-divider>
+      <ion-item *ngIf="item.customer.name">Name : {{item.customer.name}}</ion-item>
+      <ion-item *ngIf="item.customer.email_address">Email : {{item.customer.email_address}}</ion-item>
+      <ion-item *ngIf="item.customer.phone_number">Phone : {{item.customer.phone_number}}</ion-item>
+      <ion-item *ngIf="item.customer.address">Phone : {{item.customer.address}}</ion-item>
+      
+      <ion-item-divider color="light">Request Details</ion-item-divider>
+      <ion-item *ngIf="item.customer.phone_number">No of Bags : {{item.requestbag_set.length}}</ion-item>
+      <ion-item *ngIf="item.delivery_date">Delivery Date : {{item.delivery_date}}</ion-item>
+      <ion-item>Status : <span *ngIf="item.status == 0">Pending</span><span *ngIf="item.status == 1">In Process</span><span *ngIf="item.status == 2">Delivered</span></ion-item>
+
+      <ion-item *ngIf="item.supplies">
+        Supplies : 
+        <span *ngFor="let supply of item.supplies">
+            {{ supply.name }}
+        </span>
+      </ion-item>
+
+      <ion-item *ngIf="item.supplies_pricing">Supplies Pricing : {{item.supplies_pricing}}</ion-item>
+          
+
+
+    </ion-item-group>
+</ion-content>
